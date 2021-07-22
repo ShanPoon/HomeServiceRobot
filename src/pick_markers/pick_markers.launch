@@ -1,0 +1,5 @@
+<launch>
+  <!-- The pick_markers node -->
+  <node name="pick_markers" type="pick_markers" pkg="pick_markers" output="screen"/>
+
+</launch>

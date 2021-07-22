@@ -5,24 +5,24 @@
 #include <nav_msgs/Odometry.h>
 void odom_callback(const nav_msgs::Odometry::ConstPtr& msg)
 {
-   ROS_INFO("[%f]",msg->pose.pose.position.x); 
+   float position_x = msg->pose.pose.position.x;
+   float position_y = msg->pose.pose.position.y;
+   if (position_x == -1.00 && position_y == 1.00)
+   {
+    ROS_INFO("%f %f", msg->pose.pose.position.x,msg->pose.pose.position.y);
+   }
+   else {return 0}
 }
+
 
 int main( int argc, char** argv )
 {
-  ros::init(argc, argv, "add_markers");
+  ros::init(argc, argv, "pick_markers");
   ros::NodeHandle n;
   ros::Rate r(1);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1) ;
-
-  // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::CUBE;
 
-  while (ros::ok())
-  {
-   ros::Subscriber odom_sub = n.subscribe("odom", 50, odom_callback);
-
-   
    visualization_msgs::Marker marker;
    // Set the frame ID and timestamp.  See the TF tutorials for information on these.
    marker.header.frame_id = "/map";
@@ -43,10 +43,7 @@ int main( int argc, char** argv )
    marker.pose.position.x = -1.00;
    marker.pose.position.y = 1.00;
    marker.pose.position.z = 0;
-   marker.pose.orientation.x = 0.0;
-   marker.pose.orientation.y = 0.0;
-   marker.pose.orientation.z = 0.0;
-   marker.pose.orientation.w = 1.0;
+
   
    // Set the scale of the marker -- 1x1x1 here means 1m on a side
    marker.scale.x = 0.2;
@@ -59,21 +56,12 @@ int main( int argc, char** argv )
    marker.color.b = 0.0f;
    marker.color.a = 1.0;
    marker.lifetime = ros::Duration();
-  
-   // Publish the marker
-   while (marker_pub.getNumSubscribers() < 1)
-   {
-     if (!ros::ok())
-     {
-       return 0;
-     }
-     ROS_WARN_ONCE("Please create a subscriber to the marker");
-     sleep(1);
-   }
+
+ 
    marker_pub.publish(marker);
    sleep(1);
 
-
+   ros::Subscriber odom_sub = n.subscribe("odom", 1000, odom_callback);
 
 
 
@@ -89,13 +77,13 @@ int main( int argc, char** argv )
    marker.pose.orientation.y = 0.0;
    marker.pose.orientation.z = 0.0;
    marker.pose.orientation.w = 1.0;
-   marker.lifetime = ros::Duration(5);
    marker_pub.publish(marker);
    sleep(5);
    marker.action = visualization_msgs::Marker::DELETE;
    marker.lifetime = ros::Duration(5);
    marker_pub.publish(marker);
    sleep(5);
- }
- ros::spin();
+ 
+   ros::spin();
 }
+  
