@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   roscpp
   visualization_msgs
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions

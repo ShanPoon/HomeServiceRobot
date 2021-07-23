@@ -20,7 +20,6 @@ int main( int argc, char** argv )
 
   while (ros::ok())
   {
-   ros::Subscriber odom_sub = n.subscribe("odom", 50, odom_callback);
 
    
    visualization_msgs::Marker marker;
@@ -71,7 +70,7 @@ int main( int argc, char** argv )
      sleep(1);
    }
    marker_pub.publish(marker);
-   sleep(1);
+   sleep(5);
 
 
 
