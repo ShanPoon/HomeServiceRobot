@@ -25,8 +25,8 @@ void state_callback(const std_msgs::Int8::ConstPtr& msg)
   {
    ROS_INFO("%i", msg->data);
    marker.action = visualization_msgs::Marker::ADD;
-   marker.pose.position.x = -1.00;
-   marker.pose.position.y = 1.00;
+   marker.pose.position.x = 2.00;
+   marker.pose.position.y = 0.200;
    marker.pose.position.z = 0;
 
   
@@ -64,7 +64,7 @@ void state_callback(const std_msgs::Int8::ConstPtr& msg)
   {
    ROS_INFO("%i", msg->data);
    marker.action = visualization_msgs::Marker::ADD;
-   marker.pose.position.x = -3.20;
+   marker.pose.position.x = 3.0;
    marker.pose.position.y = 1.00;
    marker.pose.position.z = 0;
 
