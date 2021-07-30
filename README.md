@@ -76,3 +76,75 @@ Finally, after it has reached the first goal. It would send the second goal
      sleep(5);
   }
 ```
+For the markers part, I have built a pick_markers.cpp. The initial state is set of 0, the marker would display on the first goal.
+```
+  if (state == 0)
+  {
+   ROS_INFO("%i", msg->data);
+   marker.action = visualization_msgs::Marker::ADD;
+   marker.pose.position.x = 2.00;
+   marker.pose.position.y = 0.200;
+   marker.pose.position.z = 0;
+   
+     
+   // Set the scale of the marker -- 1x1x1 here means 1m on a side
+   marker.scale.x = 0.2;
+   marker.scale.y = 0.2;
+   marker.scale.z = 0.2;
+   
+   // Set the color -- be sure to set alpha to something non-zero!
+   marker.color.r = 0.0f;
+   marker.color.g = 1.0f;
+   marker.color.b = 0.0f;
+   marker.color.a = 1.0;
+   marker.lifetime = ros::Duration();
+
+ 
+   marker_pub.publish(marker);
+   sleep(1);
+   
+  }
+```
+Then, after the robot had arrived at the pick up zone. The State would become 1, and delete the virtual object. 
+```
+  else if (state == 1)
+  {
+   ROS_INFO("%i", msg->data);
+   marker.action = visualization_msgs::Marker::DELETE;
+   marker.lifetime = ros::Duration();
+
+ 
+   marker_pub.publish(marker);
+   sleep(5);
+   
+  }
+```
+After 5 second, the robot would go to the drop off zone.
+```
+  else if (state == 2)
+  {
+   ROS_INFO("%i", msg->data);
+   marker.action = visualization_msgs::Marker::ADD;
+   marker.pose.position.x = 3.0;
+   marker.pose.position.y = 1.00;
+   marker.pose.position.z = 0;
+     
+   // Set the scale of the marker -- 1x1x1 here means 1m on a side
+   marker.scale.x = 0.2;
+   marker.scale.y = 0.2;
+   marker.scale.z = 0.2;
+   
+   // Set the color -- be sure to set alpha to something non-zero!
+   marker.color.r = 0.0f;
+   marker.color.g = 1.0f;
+   marker.color.b = 0.0f;
+   marker.color.a = 1.0;
+   marker.lifetime = ros::Duration();
+
+ 
+   marker_pub.publish(marker);
+   sleep(1);
+   
+  }
+```
+```
