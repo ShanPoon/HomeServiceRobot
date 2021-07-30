@@ -24,6 +24,7 @@ Using teleop_twist_keyboard to control our robot for driving through the world
 ./src/scripts/test_navigation.sh 
 ```
 Using Amcl to localize the robot on the saved map
+
 ![test_navigation](https://user-images.githubusercontent.com/83933967/127612735-72640e72-3d7e-435c-8f8c-c2b2ecdf2bc4.gif)
 <br/>
 2D Nav Goal to send the goal
@@ -34,6 +35,7 @@ Using Amcl to localize the robot on the saved map
 ./test_pick_objects.sh
 ```
 Sending multiple goals for the robot to reach
+
 ![pick_object](https://user-images.githubusercontent.com/83933967/127612792-7c0ef6d3-cf43-430c-be00-cd2d14e8f70d.gif)
 
 ## 3. Home Service Functions
