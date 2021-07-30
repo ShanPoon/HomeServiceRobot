@@ -1,6 +1,6 @@
 # Project5_HomeServiceRobot
 ## Setup
-<br/>
+
 ```
 cd ~/Project5_HomeServiceRobot
 catkin_make
@@ -17,7 +17,7 @@ Using teleop_twist_keyboard to control our robot for driving through the world
 ## 2. Localization and Navigation
 <br/>
 2.1 Navigation stack
-<br/>
+
 ```
 ./src/scripts/test_navigation.sh 
 ```
@@ -26,9 +26,9 @@ Using Amcl to localize the robot on the saved map
 2D Nav Goal to send the goal
 <br/>
 2.2 Pick Object
-<br/>
+
 ```
-test_pick_objects.sh
+./test_pick_objects.sh
 ```
 Sending multiple goals for the robot to reach
 
@@ -36,7 +36,7 @@ Sending multiple goals for the robot to reach
 3.1 Creating the virtual object
 it would show the virtual object on the pickup zone, after 5 seconds, it would disappear and appear at the drop off zone
 ```
-test_add_markers.sh
+./test_add_markers.sh
 ```
 
 3.2 Home service
