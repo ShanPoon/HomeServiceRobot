@@ -13,6 +13,8 @@ source devel/setup.bash
 Using gmapping for mapping our world
 <br/>
 Using teleop_twist_keyboard to control our robot for driving through the world
+![test_slam](https://user-images.githubusercontent.com/83933967/127612690-f5e1f459-c3ac-4a6b-8a70-32bb584765cd.gif)
+
 
 ## 2. Localization and Navigation
 <br/>
@@ -22,6 +24,7 @@ Using teleop_twist_keyboard to control our robot for driving through the world
 ./src/scripts/test_navigation.sh 
 ```
 Using Amcl to localize the robot on the saved map
+![test_navigation](https://user-images.githubusercontent.com/83933967/127612735-72640e72-3d7e-435c-8f8c-c2b2ecdf2bc4.gif)
 <br/>
 2D Nav Goal to send the goal
 <br/>
@@ -31,6 +34,7 @@ Using Amcl to localize the robot on the saved map
 ./test_pick_objects.sh
 ```
 Sending multiple goals for the robot to reach
+![pick_object](https://user-images.githubusercontent.com/83933967/127612792-7c0ef6d3-cf43-430c-be00-cd2d14e8f70d.gif)
 
 ## 3. Home Service Functions
 3.1 Creating the virtual object
@@ -147,4 +151,5 @@ After 5 second, the robot would go to the drop off zone.
    
   }
 ```
-```
+## Final result
+![home_service](https://user-images.githubusercontent.com/83933967/127612821-749c6ba0-8c0e-4b2e-9b6a-8fcceb6d4914.gif)
