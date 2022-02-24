@@ -1,8 +1,8 @@
-# Project5_HomeServiceRobot
+# HomeServiceRobot
 ## Setup
 
 ```
-cd ~/Project5_HomeServiceRobot
+cd ~/HomeServiceRobot
 catkin_make
 source devel/setup.bash
 ```
